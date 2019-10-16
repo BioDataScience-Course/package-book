@@ -1,0 +1,41 @@
+---
+title: "Les fonctions dans R"
+author: "Guyliann Engels & Philippe Grosjean"
+date: "`r Sys.Date()`"
+bibliography: references.bibtex
+output: bookdown::html_document2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = "#", fig.align = "center")
+SciViews::R
+```
+
+#### Objectifs {-}
+
+- Appréhender les notions liées aux packages
+
+- Apprendre à créer un package
+
+
+#### Prérequis {-}
+
+Pour comprendre les notions dans ce module, vous devez être capables de travailler dans RStudio et d'être familiarisé avec les scripts R et les fichiers R Markdown. 
+
+Vous devez également être familiarisés avec l'écriture et la documentation de fonction
+
+# Introduction {#intro}
+
+A chaque fois que vous utilisez R vous employez des fonctions sans plus y porter attention comme la fonction `mean()` par exemple. Ces fonctions sont régroupées dans un package afin d'être plus facilement rendu disponible.
+
+L’utilisation de package a plusieurs avantages : 
+
+- On évite de répéter des fonctions de projets en projets.
+
+- On limite les possibilités de bug entre les script R.
+
+- On rend notre code plus lisible
+
+- On documente notre fonction et package
+
+TODO

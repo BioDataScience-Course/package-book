@@ -1,0 +1,75 @@
+---
+title: "usethis Creation d'un package"
+output: html_document
+---
+
+```{r setup}
+knitr::opts_chunk$set(echo = T, eval = F)
+```
+
+Dans R, tout est fonction. Des que vous réalisez plus de trois fois la même opération, il est temps de réaliser une fonction afin de ne pas copier-coller votre code à plusieurs reprises.
+
+De nombreux liens sont disponibles pour vous aider dans cette nouvelle tache :
+
+- lien en français : [Créer un package r en quelques minutes](https://thinkr.fr/creer-package-r-quelques-minutes/)
+- lien en anglais : [usethis](https://usethis.r-lib.org) : is a workflow package: it automates repetitive tasks that arise during project setup and development, both for R packages and non-package projects.
+
+Le choix du nom d'un package est compliqué. Il est cependant possible d'employer la fonction available() pour 
+
+```{r}
+available::available(name= "nom_potentiel_du_package")
+```
+
+Une fois le nom de votre package décidé, il est temps de vous lancer.
+
+```{r}
+library(usethis) # chargement du package 
+create_package(path = "votre_chemin_d_accès/le_nom_de_votre_package") # création du package
+```
+
+
+Il est intéressant de commencer par l'édition du document DESCRIPTION. Ajoutez un titre, le nom de l'auteur une description,...
+
+# Première fonction
+
+Maintenant que votre premier package est initialisé il est temps d'ajouter votre première fonction
+
+```{r}
+skeleton_weight <- function(buoyant_weight, S, T, P = 0, rho_aragonite = 2930){
+  x <- seacarb::rho(S = S, T = T, P = P)
+  y <- buoyant_weight / (1 - (x / rho_aragonite))
+  attributes(y) <- NULL
+  y
+}
+```
+
+
+# License de notre package 
+
+Il est de plus en plus courant de vouloir partager nos recherches, nos fonctions et donc nos packages. Pour ce faire, il est important de choisir une license d'utilisation de notre code :
+
+- <https://usethis.r-lib.org/reference/licenses.html>
+- <https://choosealicense.com>
+
+```{r}
+use_ccby_license(name = "Engels Guyliann")
+```
+
+# Gestion des versions
+
+L'utilisation de git comme gestionnaire de version est très important. 
+
+```{r}
+use_git() # initalisation d'un dépôt git 
+```
+
+Il est d'ailleurs possible d'employer de plus des programmes comme GitHub pour diffuser nos packages en ligne. 
+
+# README
+
+Il est également important de rédiger un README afin de présenter votre dépôt.
+
+```{r}
+use_readme_rmd()
+```
+
